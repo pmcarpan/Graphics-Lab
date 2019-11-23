@@ -63,6 +63,7 @@ SOURCES       = ..\graphics_lab\bezieralgorithms.cpp \
 		..\graphics_lab\main.cpp \
 		..\graphics_lab\menuforlines.cpp \
 		..\graphics_lab\polygonalgorithms.cpp \
+		..\graphics_lab\polygonemitter.cpp \
 		..\graphics_lab\polygonmenu.cpp \
 		..\graphics_lab\transformationalgorithms.cpp \
 		..\graphics_lab\transformationmenu.cpp \
@@ -76,6 +77,7 @@ SOURCES       = ..\graphics_lab\bezieralgorithms.cpp \
 		debug\moc_gridtableview.cpp \
 		debug\moc_linemenu.cpp \
 		debug\moc_menuforlines.cpp \
+		debug\moc_polygonemitter.cpp \
 		debug\moc_polygonmenu.cpp \
 		debug\moc_transformationmenu.cpp \
 		debug\moc_widget.cpp
@@ -95,6 +97,7 @@ OBJECTS       = debug\bezieralgorithms.obj \
 		debug\main.obj \
 		debug\menuforlines.obj \
 		debug\polygonalgorithms.obj \
+		debug\polygonemitter.obj \
 		debug\polygonmenu.obj \
 		debug\transformationalgorithms.obj \
 		debug\transformationmenu.obj \
@@ -109,6 +112,7 @@ OBJECTS       = debug\bezieralgorithms.obj \
 		debug\moc_gridtableview.obj \
 		debug\moc_linemenu.obj \
 		debug\moc_menuforlines.obj \
+		debug\moc_polygonemitter.obj \
 		debug\moc_polygonmenu.obj \
 		debug\moc_transformationmenu.obj \
 		debug\moc_widget.obj
@@ -128,6 +132,7 @@ DIST          =  ..\graphics_lab\bezieralgorithms.h \
 		..\graphics_lab\linemenu.h \
 		..\graphics_lab\menuforlines.h \
 		..\graphics_lab\polygonalgorithms.h \
+		..\graphics_lab\polygonemitter.h \
 		..\graphics_lab\polygonmenu.h \
 		..\graphics_lab\transformationalgorithms.h \
 		..\graphics_lab\transformationmenu.h \
@@ -147,6 +152,7 @@ DIST          =  ..\graphics_lab\bezieralgorithms.h \
 		..\graphics_lab\main.cpp \
 		..\graphics_lab\menuforlines.cpp \
 		..\graphics_lab\polygonalgorithms.cpp \
+		..\graphics_lab\polygonemitter.cpp \
 		..\graphics_lab\polygonmenu.cpp \
 		..\graphics_lab\transformationalgorithms.cpp \
 		..\graphics_lab\transformationmenu.cpp \
@@ -227,7 +233,7 @@ all: Makefile.Debug  debug\graphics_lab.exe
 
 debug\graphics_lab.exe: C:\Qt\5.13.0\msvc2015_64\lib\Qt5Widgetsd.lib C:\Qt\5.13.0\msvc2015_64\lib\Qt5Guid.lib C:\Qt\5.13.0\msvc2015_64\lib\Qt5Cored.lib C:\Qt\5.13.0\msvc2015_64\lib\qtmaind.lib $(OBJECTS) 
 	$(LINKER) $(LFLAGS) /MANIFEST:embed /OUT:$(DESTDIR_TARGET) @<<
-debug\bezieralgorithms.obj debug\beziermenu.obj debug\circlealgorithms.obj debug\circlemenu.obj debug\drawsignalemitter.obj debug\durationemitter.obj debug\ellipsealgorithms.obj debug\ellipsemenu.obj debug\gridmenu.obj debug\gridmodel.obj debug\gridtableview.obj debug\linealgorithms.obj debug\linemenu.obj debug\main.obj debug\menuforlines.obj debug\polygonalgorithms.obj debug\polygonmenu.obj debug\transformationalgorithms.obj debug\transformationmenu.obj debug\widget.obj debug\moc_beziermenu.obj debug\moc_circlemenu.obj debug\moc_drawsignalemitter.obj debug\moc_durationemitter.obj debug\moc_ellipsemenu.obj debug\moc_gridmenu.obj debug\moc_gridmodel.obj debug\moc_gridtableview.obj debug\moc_linemenu.obj debug\moc_menuforlines.obj debug\moc_polygonmenu.obj debug\moc_transformationmenu.obj debug\moc_widget.obj
+debug\bezieralgorithms.obj debug\beziermenu.obj debug\circlealgorithms.obj debug\circlemenu.obj debug\drawsignalemitter.obj debug\durationemitter.obj debug\ellipsealgorithms.obj debug\ellipsemenu.obj debug\gridmenu.obj debug\gridmodel.obj debug\gridtableview.obj debug\linealgorithms.obj debug\linemenu.obj debug\main.obj debug\menuforlines.obj debug\polygonalgorithms.obj debug\polygonemitter.obj debug\polygonmenu.obj debug\transformationalgorithms.obj debug\transformationmenu.obj debug\widget.obj debug\moc_beziermenu.obj debug\moc_circlemenu.obj debug\moc_drawsignalemitter.obj debug\moc_durationemitter.obj debug\moc_ellipsemenu.obj debug\moc_gridmenu.obj debug\moc_gridmodel.obj debug\moc_gridtableview.obj debug\moc_linemenu.obj debug\moc_menuforlines.obj debug\moc_polygonemitter.obj debug\moc_polygonmenu.obj debug\moc_transformationmenu.obj debug\moc_widget.obj
 $(LIBS)
 <<
 
@@ -237,10 +243,10 @@ qmake: FORCE
 qmake_all: FORCE
 
 dist:
-	$(ZIP) graphics_lab.zip $(SOURCES) $(DIST) ..\graphics_lab\graphics_lab.pro C:\Qt\5.13.0\msvc2015_64\mkspecs\features\spec_pre.prf C:\Qt\5.13.0\msvc2015_64\mkspecs\common\angle.conf C:\Qt\5.13.0\msvc2015_64\mkspecs\common\windows-desktop.conf C:\Qt\5.13.0\msvc2015_64\mkspecs\features\win32\windows_vulkan_sdk.prf C:\Qt\5.13.0\msvc2015_64\mkspecs\common\windows-vulkan.conf C:\Qt\5.13.0\msvc2015_64\mkspecs\common\msvc-desktop.conf C:\Qt\5.13.0\msvc2015_64\mkspecs\qconfig.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_3danimation.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_3danimation_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_3dcore.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_3dcore_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_3dextras.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_3dextras_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_3dinput.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_3dinput_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_3dlogic.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_3dlogic_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_3dquick.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_3dquick_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_3dquickanimation.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_3dquickanimation_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_3dquickextras.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_3dquickextras_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_3dquickinput.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_3dquickinput_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_3dquickrender.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_3dquickrender_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_3dquickscene2d.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_3dquickscene2d_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_3drender.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_3drender_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_accessibility_support_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_axbase.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_axbase_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_axcontainer.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_axcontainer_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_axserver.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_axserver_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_bluetooth.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_bluetooth_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_bootstrap_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_concurrent.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_concurrent_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_core.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_core_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_dbus.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_dbus_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_designer.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_designer_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_designercomponents_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_devicediscovery_support_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_edid_support_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_egl_support_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_eventdispatcher_support_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_fb_support_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_fontdatabase_support_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_gamepad.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_gamepad_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_gui.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_gui_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_help.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_help_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_location.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_location_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_multimedia.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_multimedia_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_multimediawidgets.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_multimediawidgets_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_network.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_network_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_nfc.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_nfc_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_opengl.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_opengl_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_openglextensions.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_openglextensions_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_packetprotocol_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_platformcompositor_support_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_positioning.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_positioning_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_positioningquick.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_positioningquick_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_printsupport.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_printsupport_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_qml.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_qml_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_qmldebug_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_qmldevtools_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_qmltest.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_qmltest_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_qtmultimediaquicktools_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_quick.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_quick_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_quickcontrols2.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_quickcontrols2_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_quickparticles_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_quickshapes_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_quicktemplates2.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_quicktemplates2_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_quickwidgets.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_quickwidgets_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_remoteobjects.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_remoteobjects_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_repparser.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_repparser_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_scxml.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_scxml_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_sensors.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_sensors_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_serialbus.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_serialbus_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_serialport.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_serialport_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_sql.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_sql_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_svg.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_svg_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_testlib.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_testlib_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_texttospeech.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_texttospeech_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_theme_support_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_uiplugin.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_uitools.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_uitools_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_vulkan_support_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_webchannel.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_webchannel_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_websockets.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_websockets_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_webview.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_webview_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_widgets.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_widgets_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_windowsuiautomation_support_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_winextras.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_winextras_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_xml.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_xml_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_xmlpatterns.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_xmlpatterns_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_zlib_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\features\qt_functions.prf C:\Qt\5.13.0\msvc2015_64\mkspecs\features\qt_config.prf C:\Qt\5.13.0\msvc2015_64\mkspecs\win32-msvc\qmake.conf C:\Qt\5.13.0\msvc2015_64\mkspecs\features\spec_post.prf .qmake.stash C:\Qt\5.13.0\msvc2015_64\mkspecs\features\exclusive_builds.prf C:\Qt\5.13.0\msvc2015_64\mkspecs\common\msvc-version.conf C:\Qt\5.13.0\msvc2015_64\mkspecs\features\toolchain.prf C:\Qt\5.13.0\msvc2015_64\mkspecs\features\default_pre.prf C:\Qt\5.13.0\msvc2015_64\mkspecs\features\win32\default_pre.prf C:\Qt\5.13.0\msvc2015_64\mkspecs\features\resolve_config.prf C:\Qt\5.13.0\msvc2015_64\mkspecs\features\exclusive_builds_post.prf C:\Qt\5.13.0\msvc2015_64\mkspecs\features\default_post.prf C:\Qt\5.13.0\msvc2015_64\mkspecs\features\build_pass.prf C:\Qt\5.13.0\msvc2015_64\mkspecs\features\qml_debug.prf C:\Qt\5.13.0\msvc2015_64\mkspecs\features\precompile_header.prf C:\Qt\5.13.0\msvc2015_64\mkspecs\features\warn_on.prf C:\Qt\5.13.0\msvc2015_64\mkspecs\features\qt.prf C:\Qt\5.13.0\msvc2015_64\mkspecs\features\resources.prf C:\Qt\5.13.0\msvc2015_64\mkspecs\features\moc.prf C:\Qt\5.13.0\msvc2015_64\mkspecs\features\win32\opengl.prf C:\Qt\5.13.0\msvc2015_64\mkspecs\features\uic.prf C:\Qt\5.13.0\msvc2015_64\mkspecs\features\qmake_use.prf C:\Qt\5.13.0\msvc2015_64\mkspecs\features\file_copies.prf C:\Qt\5.13.0\msvc2015_64\mkspecs\features\win32\windows.prf C:\Qt\5.13.0\msvc2015_64\mkspecs\features\testcase_targets.prf C:\Qt\5.13.0\msvc2015_64\mkspecs\features\exceptions.prf C:\Qt\5.13.0\msvc2015_64\mkspecs\features\yacc.prf C:\Qt\5.13.0\msvc2015_64\mkspecs\features\lex.prf ..\graphics_lab\graphics_lab.pro C:\Qt\5.13.0\msvc2015_64\lib\Qt5Widgetsd.prl C:\Qt\5.13.0\msvc2015_64\lib\Qt5Guid.prl C:\Qt\5.13.0\msvc2015_64\lib\Qt5Cored.prl C:\Qt\5.13.0\msvc2015_64\lib\qtmaind.prl    C:\Qt\5.13.0\msvc2015_64\mkspecs\features\data\dummy.cpp ..\graphics_lab\bezieralgorithms.h ..\graphics_lab\beziermenu.h ..\graphics_lab\circlealgorithms.h ..\graphics_lab\circlemenu.h ..\graphics_lab\drawsignalemitter.h ..\graphics_lab\durationemitter.h ..\graphics_lab\ellipsealgorithms.h ..\graphics_lab\ellipsemenu.h ..\graphics_lab\gridmenu.h ..\graphics_lab\gridmodel.h ..\graphics_lab\gridtableview.h ..\graphics_lab\linealgorithms.h ..\graphics_lab\linemenu.h ..\graphics_lab\menuforlines.h ..\graphics_lab\polygonalgorithms.h ..\graphics_lab\polygonmenu.h ..\graphics_lab\transformationalgorithms.h ..\graphics_lab\transformationmenu.h ..\graphics_lab\widget.h  ..\graphics_lab\bezieralgorithms.cpp ..\graphics_lab\beziermenu.cpp ..\graphics_lab\circlealgorithms.cpp ..\graphics_lab\circlemenu.cpp ..\graphics_lab\drawsignalemitter.cpp ..\graphics_lab\durationemitter.cpp ..\graphics_lab\ellipsealgorithms.cpp ..\graphics_lab\ellipsemenu.cpp ..\graphics_lab\gridmenu.cpp ..\graphics_lab\gridmodel.cpp ..\graphics_lab\gridtableview.cpp ..\graphics_lab\linealgorithms.cpp ..\graphics_lab\linemenu.cpp ..\graphics_lab\main.cpp ..\graphics_lab\menuforlines.cpp ..\graphics_lab\polygonalgorithms.cpp ..\graphics_lab\polygonmenu.cpp ..\graphics_lab\transformationalgorithms.cpp ..\graphics_lab\transformationmenu.cpp ..\graphics_lab\widget.cpp     
+	$(ZIP) graphics_lab.zip $(SOURCES) $(DIST) ..\graphics_lab\graphics_lab.pro C:\Qt\5.13.0\msvc2015_64\mkspecs\features\spec_pre.prf C:\Qt\5.13.0\msvc2015_64\mkspecs\common\angle.conf C:\Qt\5.13.0\msvc2015_64\mkspecs\common\windows-desktop.conf C:\Qt\5.13.0\msvc2015_64\mkspecs\features\win32\windows_vulkan_sdk.prf C:\Qt\5.13.0\msvc2015_64\mkspecs\common\windows-vulkan.conf C:\Qt\5.13.0\msvc2015_64\mkspecs\common\msvc-desktop.conf C:\Qt\5.13.0\msvc2015_64\mkspecs\qconfig.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_3danimation.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_3danimation_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_3dcore.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_3dcore_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_3dextras.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_3dextras_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_3dinput.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_3dinput_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_3dlogic.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_3dlogic_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_3dquick.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_3dquick_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_3dquickanimation.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_3dquickanimation_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_3dquickextras.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_3dquickextras_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_3dquickinput.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_3dquickinput_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_3dquickrender.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_3dquickrender_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_3dquickscene2d.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_3dquickscene2d_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_3drender.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_3drender_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_accessibility_support_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_axbase.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_axbase_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_axcontainer.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_axcontainer_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_axserver.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_axserver_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_bluetooth.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_bluetooth_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_bootstrap_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_concurrent.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_concurrent_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_core.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_core_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_dbus.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_dbus_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_designer.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_designer_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_designercomponents_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_devicediscovery_support_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_edid_support_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_egl_support_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_eventdispatcher_support_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_fb_support_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_fontdatabase_support_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_gamepad.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_gamepad_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_gui.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_gui_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_help.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_help_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_location.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_location_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_multimedia.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_multimedia_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_multimediawidgets.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_multimediawidgets_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_network.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_network_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_nfc.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_nfc_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_opengl.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_opengl_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_openglextensions.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_openglextensions_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_packetprotocol_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_platformcompositor_support_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_positioning.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_positioning_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_positioningquick.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_positioningquick_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_printsupport.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_printsupport_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_qml.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_qml_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_qmldebug_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_qmldevtools_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_qmltest.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_qmltest_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_qtmultimediaquicktools_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_quick.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_quick_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_quickcontrols2.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_quickcontrols2_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_quickparticles_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_quickshapes_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_quicktemplates2.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_quicktemplates2_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_quickwidgets.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_quickwidgets_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_remoteobjects.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_remoteobjects_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_repparser.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_repparser_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_scxml.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_scxml_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_sensors.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_sensors_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_serialbus.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_serialbus_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_serialport.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_serialport_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_sql.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_sql_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_svg.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_svg_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_testlib.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_testlib_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_texttospeech.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_texttospeech_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_theme_support_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_uiplugin.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_uitools.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_uitools_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_vulkan_support_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_webchannel.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_webchannel_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_websockets.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_websockets_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_webview.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_webview_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_widgets.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_widgets_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_windowsuiautomation_support_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_winextras.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_winextras_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_xml.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_xml_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_xmlpatterns.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_xmlpatterns_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\modules\qt_lib_zlib_private.pri C:\Qt\5.13.0\msvc2015_64\mkspecs\features\qt_functions.prf C:\Qt\5.13.0\msvc2015_64\mkspecs\features\qt_config.prf C:\Qt\5.13.0\msvc2015_64\mkspecs\win32-msvc\qmake.conf C:\Qt\5.13.0\msvc2015_64\mkspecs\features\spec_post.prf .qmake.stash C:\Qt\5.13.0\msvc2015_64\mkspecs\features\exclusive_builds.prf C:\Qt\5.13.0\msvc2015_64\mkspecs\common\msvc-version.conf C:\Qt\5.13.0\msvc2015_64\mkspecs\features\toolchain.prf C:\Qt\5.13.0\msvc2015_64\mkspecs\features\default_pre.prf C:\Qt\5.13.0\msvc2015_64\mkspecs\features\win32\default_pre.prf C:\Qt\5.13.0\msvc2015_64\mkspecs\features\resolve_config.prf C:\Qt\5.13.0\msvc2015_64\mkspecs\features\exclusive_builds_post.prf C:\Qt\5.13.0\msvc2015_64\mkspecs\features\default_post.prf C:\Qt\5.13.0\msvc2015_64\mkspecs\features\build_pass.prf C:\Qt\5.13.0\msvc2015_64\mkspecs\features\qml_debug.prf C:\Qt\5.13.0\msvc2015_64\mkspecs\features\precompile_header.prf C:\Qt\5.13.0\msvc2015_64\mkspecs\features\warn_on.prf C:\Qt\5.13.0\msvc2015_64\mkspecs\features\qt.prf C:\Qt\5.13.0\msvc2015_64\mkspecs\features\resources.prf C:\Qt\5.13.0\msvc2015_64\mkspecs\features\moc.prf C:\Qt\5.13.0\msvc2015_64\mkspecs\features\win32\opengl.prf C:\Qt\5.13.0\msvc2015_64\mkspecs\features\uic.prf C:\Qt\5.13.0\msvc2015_64\mkspecs\features\qmake_use.prf C:\Qt\5.13.0\msvc2015_64\mkspecs\features\file_copies.prf C:\Qt\5.13.0\msvc2015_64\mkspecs\features\win32\windows.prf C:\Qt\5.13.0\msvc2015_64\mkspecs\features\testcase_targets.prf C:\Qt\5.13.0\msvc2015_64\mkspecs\features\exceptions.prf C:\Qt\5.13.0\msvc2015_64\mkspecs\features\yacc.prf C:\Qt\5.13.0\msvc2015_64\mkspecs\features\lex.prf ..\graphics_lab\graphics_lab.pro C:\Qt\5.13.0\msvc2015_64\lib\Qt5Widgetsd.prl C:\Qt\5.13.0\msvc2015_64\lib\Qt5Guid.prl C:\Qt\5.13.0\msvc2015_64\lib\Qt5Cored.prl C:\Qt\5.13.0\msvc2015_64\lib\qtmaind.prl    C:\Qt\5.13.0\msvc2015_64\mkspecs\features\data\dummy.cpp ..\graphics_lab\bezieralgorithms.h ..\graphics_lab\beziermenu.h ..\graphics_lab\circlealgorithms.h ..\graphics_lab\circlemenu.h ..\graphics_lab\drawsignalemitter.h ..\graphics_lab\durationemitter.h ..\graphics_lab\ellipsealgorithms.h ..\graphics_lab\ellipsemenu.h ..\graphics_lab\gridmenu.h ..\graphics_lab\gridmodel.h ..\graphics_lab\gridtableview.h ..\graphics_lab\linealgorithms.h ..\graphics_lab\linemenu.h ..\graphics_lab\menuforlines.h ..\graphics_lab\polygonalgorithms.h ..\graphics_lab\polygonemitter.h ..\graphics_lab\polygonmenu.h ..\graphics_lab\transformationalgorithms.h ..\graphics_lab\transformationmenu.h ..\graphics_lab\widget.h  ..\graphics_lab\bezieralgorithms.cpp ..\graphics_lab\beziermenu.cpp ..\graphics_lab\circlealgorithms.cpp ..\graphics_lab\circlemenu.cpp ..\graphics_lab\drawsignalemitter.cpp ..\graphics_lab\durationemitter.cpp ..\graphics_lab\ellipsealgorithms.cpp ..\graphics_lab\ellipsemenu.cpp ..\graphics_lab\gridmenu.cpp ..\graphics_lab\gridmodel.cpp ..\graphics_lab\gridtableview.cpp ..\graphics_lab\linealgorithms.cpp ..\graphics_lab\linemenu.cpp ..\graphics_lab\main.cpp ..\graphics_lab\menuforlines.cpp ..\graphics_lab\polygonalgorithms.cpp ..\graphics_lab\polygonemitter.cpp ..\graphics_lab\polygonmenu.cpp ..\graphics_lab\transformationalgorithms.cpp ..\graphics_lab\transformationmenu.cpp ..\graphics_lab\widget.cpp     
 
 clean: compiler_clean 
-	-$(DEL_FILE) debug\bezieralgorithms.obj debug\beziermenu.obj debug\circlealgorithms.obj debug\circlemenu.obj debug\drawsignalemitter.obj debug\durationemitter.obj debug\ellipsealgorithms.obj debug\ellipsemenu.obj debug\gridmenu.obj debug\gridmodel.obj debug\gridtableview.obj debug\linealgorithms.obj debug\linemenu.obj debug\main.obj debug\menuforlines.obj debug\polygonalgorithms.obj debug\polygonmenu.obj debug\transformationalgorithms.obj debug\transformationmenu.obj debug\widget.obj debug\moc_beziermenu.obj debug\moc_circlemenu.obj debug\moc_drawsignalemitter.obj debug\moc_durationemitter.obj debug\moc_ellipsemenu.obj debug\moc_gridmenu.obj debug\moc_gridmodel.obj debug\moc_gridtableview.obj debug\moc_linemenu.obj debug\moc_menuforlines.obj debug\moc_polygonmenu.obj debug\moc_transformationmenu.obj debug\moc_widget.obj
+	-$(DEL_FILE) debug\bezieralgorithms.obj debug\beziermenu.obj debug\circlealgorithms.obj debug\circlemenu.obj debug\drawsignalemitter.obj debug\durationemitter.obj debug\ellipsealgorithms.obj debug\ellipsemenu.obj debug\gridmenu.obj debug\gridmodel.obj debug\gridtableview.obj debug\linealgorithms.obj debug\linemenu.obj debug\main.obj debug\menuforlines.obj debug\polygonalgorithms.obj debug\polygonemitter.obj debug\polygonmenu.obj debug\transformationalgorithms.obj debug\transformationmenu.obj debug\widget.obj debug\moc_beziermenu.obj debug\moc_circlemenu.obj debug\moc_drawsignalemitter.obj debug\moc_durationemitter.obj debug\moc_ellipsemenu.obj debug\moc_gridmenu.obj debug\moc_gridmodel.obj debug\moc_gridtableview.obj debug\moc_linemenu.obj debug\moc_menuforlines.obj debug\moc_polygonemitter.obj debug\moc_polygonmenu.obj debug\moc_transformationmenu.obj debug\moc_widget.obj
 	-$(DEL_FILE) debug\graphics_lab.vc.pdb debug\graphics_lab.ilk debug\graphics_lab.idb
 
 distclean: clean 
@@ -266,9 +272,9 @@ compiler_moc_predefs_clean:
 debug\moc_predefs.h: C:\Qt\5.13.0\msvc2015_64\mkspecs\features\data\dummy.cpp
 	cl -BxC:\Qt\5.13.0\msvc2015_64\bin\qmake.exe -nologo -Zc:wchar_t -FS -Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus -Zi -MDd -W3 -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 -wd4577 -wd4467 -E C:\Qt\5.13.0\msvc2015_64\mkspecs\features\data\dummy.cpp 2>NUL >debug\moc_predefs.h
 
-compiler_moc_header_make_all: debug\moc_beziermenu.cpp debug\moc_circlemenu.cpp debug\moc_drawsignalemitter.cpp debug\moc_durationemitter.cpp debug\moc_ellipsemenu.cpp debug\moc_gridmenu.cpp debug\moc_gridmodel.cpp debug\moc_gridtableview.cpp debug\moc_linemenu.cpp debug\moc_menuforlines.cpp debug\moc_polygonmenu.cpp debug\moc_transformationmenu.cpp debug\moc_widget.cpp
+compiler_moc_header_make_all: debug\moc_beziermenu.cpp debug\moc_circlemenu.cpp debug\moc_drawsignalemitter.cpp debug\moc_durationemitter.cpp debug\moc_ellipsemenu.cpp debug\moc_gridmenu.cpp debug\moc_gridmodel.cpp debug\moc_gridtableview.cpp debug\moc_linemenu.cpp debug\moc_menuforlines.cpp debug\moc_polygonemitter.cpp debug\moc_polygonmenu.cpp debug\moc_transformationmenu.cpp debug\moc_widget.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) debug\moc_beziermenu.cpp debug\moc_circlemenu.cpp debug\moc_drawsignalemitter.cpp debug\moc_durationemitter.cpp debug\moc_ellipsemenu.cpp debug\moc_gridmenu.cpp debug\moc_gridmodel.cpp debug\moc_gridtableview.cpp debug\moc_linemenu.cpp debug\moc_menuforlines.cpp debug\moc_polygonmenu.cpp debug\moc_transformationmenu.cpp debug\moc_widget.cpp
+	-$(DEL_FILE) debug\moc_beziermenu.cpp debug\moc_circlemenu.cpp debug\moc_drawsignalemitter.cpp debug\moc_durationemitter.cpp debug\moc_ellipsemenu.cpp debug\moc_gridmenu.cpp debug\moc_gridmodel.cpp debug\moc_gridtableview.cpp debug\moc_linemenu.cpp debug\moc_menuforlines.cpp debug\moc_polygonemitter.cpp debug\moc_polygonmenu.cpp debug\moc_transformationmenu.cpp debug\moc_widget.cpp
 debug\moc_beziermenu.cpp: ..\graphics_lab\beziermenu.h \
 		C:\Qt\5.13.0\msvc2015_64\include\QtWidgets\QWidget \
 		C:\Qt\5.13.0\msvc2015_64\include\QtWidgets\qwidget.h \
@@ -1415,9 +1421,72 @@ debug\moc_menuforlines.cpp: ..\graphics_lab\menuforlines.h \
 		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qitemselectionmodel.h \
 		..\graphics_lab\transformationmenu.h \
 		C:\Qt\5.13.0\msvc2015_64\include\QtWidgets\QDoubleSpinBox \
+		..\graphics_lab\beziermenu.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtWidgets\QLayout \
+		C:\Qt\5.13.0\msvc2015_64\include\QtWidgets\qlayout.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtWidgets\qlayoutitem.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtWidgets\qboxlayout.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtWidgets\qgridlayout.h \
 		debug\moc_predefs.h \
 		C:\Qt\5.13.0\msvc2015_64\bin\moc.exe
 	C:\Qt\5.13.0\msvc2015_64\bin\moc.exe $(DEFINES) --compiler-flavor=msvc --include "C:/Users/Supratik basu/Desktop/qt/proj/build-graphics_lab-Desktop_Qt_5_13_0_MSVC2015_64bit-Debug/debug/moc_predefs.h" -IC:/Qt/5.13.0/msvc2015_64/mkspecs/win32-msvc -I"C:/Users/Supratik basu/Desktop/qt/proj/graphics_lab" -IC:/Qt/5.13.0/msvc2015_64/include -IC:/Qt/5.13.0/msvc2015_64/include/QtWidgets -IC:/Qt/5.13.0/msvc2015_64/include/QtGui -IC:/Qt/5.13.0/msvc2015_64/include/QtANGLE -IC:/Qt/5.13.0/msvc2015_64/include/QtCore -I. -I"C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\VC\Tools\MSVC\14.15.26726\include" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\shared" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\um" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\winrt" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\cppwinrt" ..\graphics_lab\menuforlines.h -o debug\moc_menuforlines.cpp
+
+debug\moc_polygonemitter.cpp: ..\graphics_lab\polygonemitter.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\QObject \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qobject.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qobjectdefs.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qnamespace.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qglobal.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qconfig-bootstrapped.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qconfig.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qtcore-config.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qsystemdetection.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qprocessordetection.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qcompilerdetection.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qtypeinfo.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qsysinfo.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qlogging.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qflags.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qatomic.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qbasicatomic.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qatomic_bootstrap.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qgenericatomic.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qatomic_cxx11.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qatomic_msvc.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qglobalstatic.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qmutex.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qnumeric.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qversiontagging.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qobjectdefs_impl.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qstring.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qchar.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qbytearray.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qrefcount.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qarraydata.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qstringliteral.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qstringalgorithms.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qstringview.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qstringbuilder.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qlist.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qalgorithms.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qiterator.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qhashfunctions.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qpair.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qvector.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qpoint.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qbytearraylist.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qstringlist.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qregexp.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qstringmatcher.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qcoreevent.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qscopedpointer.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qmetatype.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qvarlengtharray.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qcontainerfwd.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qobject_impl.h \
+		debug\moc_predefs.h \
+		C:\Qt\5.13.0\msvc2015_64\bin\moc.exe
+	C:\Qt\5.13.0\msvc2015_64\bin\moc.exe $(DEFINES) --compiler-flavor=msvc --include "C:/Users/Supratik basu/Desktop/qt/proj/build-graphics_lab-Desktop_Qt_5_13_0_MSVC2015_64bit-Debug/debug/moc_predefs.h" -IC:/Qt/5.13.0/msvc2015_64/mkspecs/win32-msvc -I"C:/Users/Supratik basu/Desktop/qt/proj/graphics_lab" -IC:/Qt/5.13.0/msvc2015_64/include -IC:/Qt/5.13.0/msvc2015_64/include/QtWidgets -IC:/Qt/5.13.0/msvc2015_64/include/QtGui -IC:/Qt/5.13.0/msvc2015_64/include/QtANGLE -IC:/Qt/5.13.0/msvc2015_64/include/QtCore -I. -I"C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\VC\Tools\MSVC\14.15.26726\include" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\shared" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\um" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\winrt" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\cppwinrt" ..\graphics_lab\polygonemitter.h -o debug\moc_polygonemitter.cpp
 
 debug\moc_polygonmenu.cpp: ..\graphics_lab\polygonmenu.h \
 		C:\Qt\5.13.0\msvc2015_64\include\QtWidgets\QWidget \
@@ -1836,8 +1905,16 @@ debug\moc_widget.cpp: ..\graphics_lab\widget.h \
 		C:\Qt\5.13.0\msvc2015_64\include\QtWidgets\qtablewidget.h \
 		..\graphics_lab\transformationmenu.h \
 		C:\Qt\5.13.0\msvc2015_64\include\QtWidgets\QDoubleSpinBox \
+		..\graphics_lab\beziermenu.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtWidgets\QLayout \
+		C:\Qt\5.13.0\msvc2015_64\include\QtWidgets\qlayout.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtWidgets\qlayoutitem.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtWidgets\qboxlayout.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtWidgets\qgridlayout.h \
 		..\graphics_lab\polygonalgorithms.h \
 		..\graphics_lab\transformationalgorithms.h \
+		..\graphics_lab\polygonemitter.h \
+		..\graphics_lab\bezieralgorithms.h \
 		debug\moc_predefs.h \
 		C:\Qt\5.13.0\msvc2015_64\bin\moc.exe
 	C:\Qt\5.13.0\msvc2015_64\bin\moc.exe $(DEFINES) --compiler-flavor=msvc --include "C:/Users/Supratik basu/Desktop/qt/proj/build-graphics_lab-Desktop_Qt_5_13_0_MSVC2015_64bit-Debug/debug/moc_predefs.h" -IC:/Qt/5.13.0/msvc2015_64/mkspecs/win32-msvc -I"C:/Users/Supratik basu/Desktop/qt/proj/graphics_lab" -IC:/Qt/5.13.0/msvc2015_64/include -IC:/Qt/5.13.0/msvc2015_64/include/QtWidgets -IC:/Qt/5.13.0/msvc2015_64/include/QtGui -IC:/Qt/5.13.0/msvc2015_64/include/QtANGLE -IC:/Qt/5.13.0/msvc2015_64/include/QtCore -I. -I"C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\VC\Tools\MSVC\14.15.26726\include" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\shared" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\um" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\winrt" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\cppwinrt" ..\graphics_lab\widget.h -o debug\moc_widget.cpp
@@ -2067,7 +2144,10 @@ debug\beziermenu.obj: ..\graphics_lab\beziermenu.cpp ..\graphics_lab\beziermenu.
 		C:\Qt\5.13.0\msvc2015_64\include\QtWidgets\QPushButton \
 		C:\Qt\5.13.0\msvc2015_64\include\QtWidgets\qpushbutton.h \
 		C:\Qt\5.13.0\msvc2015_64\include\QtWidgets\qabstractbutton.h \
-		C:\Qt\5.13.0\msvc2015_64\include\QtGui\qicon.h
+		C:\Qt\5.13.0\msvc2015_64\include\QtGui\qicon.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtWidgets\QMessageBox \
+		C:\Qt\5.13.0\msvc2015_64\include\QtWidgets\qmessagebox.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtWidgets\qdialog.h
 
 debug\circlealgorithms.obj: ..\graphics_lab\circlealgorithms.cpp ..\graphics_lab\circlealgorithms.h \
 		..\graphics_lab\gridmodel.h \
@@ -3374,8 +3454,16 @@ debug\main.obj: ..\graphics_lab\main.cpp ..\graphics_lab\widget.h \
 		C:\Qt\5.13.0\msvc2015_64\include\QtWidgets\qtablewidget.h \
 		..\graphics_lab\transformationmenu.h \
 		C:\Qt\5.13.0\msvc2015_64\include\QtWidgets\QDoubleSpinBox \
+		..\graphics_lab\beziermenu.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtWidgets\QLayout \
+		C:\Qt\5.13.0\msvc2015_64\include\QtWidgets\qlayout.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtWidgets\qlayoutitem.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtWidgets\qboxlayout.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtWidgets\qgridlayout.h \
 		..\graphics_lab\polygonalgorithms.h \
 		..\graphics_lab\transformationalgorithms.h \
+		..\graphics_lab\polygonemitter.h \
+		..\graphics_lab\bezieralgorithms.h \
 		C:\Qt\5.13.0\msvc2015_64\include\QtWidgets\QApplication \
 		C:\Qt\5.13.0\msvc2015_64\include\QtWidgets\qapplication.h \
 		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qcoreapplication.h \
@@ -3535,11 +3623,13 @@ debug\menuforlines.obj: ..\graphics_lab\menuforlines.cpp ..\graphics_lab\menufor
 		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qitemselectionmodel.h \
 		..\graphics_lab\transformationmenu.h \
 		C:\Qt\5.13.0\msvc2015_64\include\QtWidgets\QDoubleSpinBox \
-		C:\Qt\5.13.0\msvc2015_64\include\QtWidgets\QVBoxLayout \
-		C:\Qt\5.13.0\msvc2015_64\include\QtWidgets\qboxlayout.h \
+		..\graphics_lab\beziermenu.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtWidgets\QLayout \
 		C:\Qt\5.13.0\msvc2015_64\include\QtWidgets\qlayout.h \
 		C:\Qt\5.13.0\msvc2015_64\include\QtWidgets\qlayoutitem.h \
-		C:\Qt\5.13.0\msvc2015_64\include\QtWidgets\qgridlayout.h
+		C:\Qt\5.13.0\msvc2015_64\include\QtWidgets\qboxlayout.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtWidgets\qgridlayout.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtWidgets\QVBoxLayout
 
 debug\polygonalgorithms.obj: ..\graphics_lab\polygonalgorithms.cpp ..\graphics_lab\polygonalgorithms.h \
 		..\graphics_lab\gridmodel.h \
@@ -3633,6 +3723,60 @@ debug\polygonalgorithms.obj: ..\graphics_lab\polygonalgorithms.cpp ..\graphics_l
 		..\graphics_lab\linealgorithms.h \
 		..\graphics_lab\durationemitter.h \
 		C:\Qt\5.13.0\msvc2015_64\include\QtCore\QObject
+
+debug\polygonemitter.obj: ..\graphics_lab\polygonemitter.cpp ..\graphics_lab\polygonemitter.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\QObject \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qobject.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qobjectdefs.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qnamespace.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qglobal.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qconfig-bootstrapped.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qconfig.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qtcore-config.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qsystemdetection.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qprocessordetection.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qcompilerdetection.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qtypeinfo.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qsysinfo.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qlogging.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qflags.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qatomic.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qbasicatomic.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qatomic_bootstrap.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qgenericatomic.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qatomic_cxx11.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qatomic_msvc.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qglobalstatic.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qmutex.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qnumeric.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qversiontagging.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qobjectdefs_impl.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qstring.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qchar.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qbytearray.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qrefcount.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qarraydata.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qstringliteral.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qstringalgorithms.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qstringview.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qstringbuilder.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qlist.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qalgorithms.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qiterator.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qhashfunctions.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qpair.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qvector.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qpoint.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qbytearraylist.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qstringlist.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qregexp.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qstringmatcher.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qcoreevent.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qscopedpointer.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qmetatype.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qvarlengtharray.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qcontainerfwd.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qobject_impl.h
 
 debug\polygonmenu.obj: ..\graphics_lab\polygonmenu.cpp ..\graphics_lab\polygonmenu.h \
 		C:\Qt\5.13.0\msvc2015_64\include\QtWidgets\QWidget \
@@ -3864,6 +4008,8 @@ debug\transformationalgorithms.obj: ..\graphics_lab\transformationalgorithms.cpp
 		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qfiledevice.h \
 		C:\Qt\5.13.0\msvc2015_64\include\QtGui\qvector2d.h \
 		C:\Qt\5.13.0\msvc2015_64\include\QtGui\qtouchdevice.h \
+		..\graphics_lab\polygonemitter.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtCore\QObject \
 		C:\Qt\5.13.0\msvc2015_64\include\QtCore\QtMath \
 		C:\Qt\5.13.0\msvc2015_64\include\QtCore\qmath.h \
 		..\graphics_lab\polygonalgorithms.h
@@ -4151,13 +4297,17 @@ debug\widget.obj: ..\graphics_lab\widget.cpp ..\graphics_lab\widget.h \
 		C:\Qt\5.13.0\msvc2015_64\include\QtWidgets\qtablewidget.h \
 		..\graphics_lab\transformationmenu.h \
 		C:\Qt\5.13.0\msvc2015_64\include\QtWidgets\QDoubleSpinBox \
-		..\graphics_lab\polygonalgorithms.h \
-		..\graphics_lab\transformationalgorithms.h \
-		C:\Qt\5.13.0\msvc2015_64\include\QtWidgets\QHBoxLayout \
-		C:\Qt\5.13.0\msvc2015_64\include\QtWidgets\qboxlayout.h \
+		..\graphics_lab\beziermenu.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtWidgets\QLayout \
 		C:\Qt\5.13.0\msvc2015_64\include\QtWidgets\qlayout.h \
 		C:\Qt\5.13.0\msvc2015_64\include\QtWidgets\qlayoutitem.h \
-		C:\Qt\5.13.0\msvc2015_64\include\QtWidgets\qgridlayout.h
+		C:\Qt\5.13.0\msvc2015_64\include\QtWidgets\qboxlayout.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtWidgets\qgridlayout.h \
+		..\graphics_lab\polygonalgorithms.h \
+		..\graphics_lab\transformationalgorithms.h \
+		..\graphics_lab\polygonemitter.h \
+		..\graphics_lab\bezieralgorithms.h \
+		C:\Qt\5.13.0\msvc2015_64\include\QtWidgets\QHBoxLayout
 
 debug\moc_beziermenu.obj: debug\moc_beziermenu.cpp 
 
@@ -4178,6 +4328,8 @@ debug\moc_gridtableview.obj: debug\moc_gridtableview.cpp
 debug\moc_linemenu.obj: debug\moc_linemenu.cpp 
 
 debug\moc_menuforlines.obj: debug\moc_menuforlines.cpp 
+
+debug\moc_polygonemitter.obj: debug\moc_polygonemitter.cpp 
 
 debug\moc_polygonmenu.obj: debug\moc_polygonmenu.cpp 
 

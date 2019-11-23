@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_Widget_t {
-    QByteArrayData data[48];
-    char stringdata0[714];
+    QByteArrayData data[50];
+    char stringdata0[759];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -79,7 +79,9 @@ QT_MOC_LITERAL(43, 618, 2), // "dy"
 QT_MOC_LITERAL(44, 621, 25), // "receiveReflectPointSignal"
 QT_MOC_LITERAL(45, 647, 24), // "receiveReflectLineSignal"
 QT_MOC_LITERAL(46, 672, 27), // "receiveDrawBezierFullSignal"
-QT_MOC_LITERAL(47, 700, 13) // "controlPoints"
+QT_MOC_LITERAL(47, 700, 13), // "controlPoints"
+QT_MOC_LITERAL(48, 714, 29), // "receiveDrawBezierApproxSignal"
+QT_MOC_LITERAL(49, 744, 14) // "receivePolygon"
 
     },
     "Widget\0receiveDrawLineSignal\0\0x1\0y1\0"
@@ -103,7 +105,9 @@ QT_MOC_LITERAL(47, 700, 13) // "controlPoints"
     "receiveTranslateSignal\0dx\0dy\0"
     "receiveReflectPointSignal\0"
     "receiveReflectLineSignal\0"
-    "receiveDrawBezierFullSignal\0controlPoints"
+    "receiveDrawBezierFullSignal\0controlPoints\0"
+    "receiveDrawBezierApproxSignal\0"
+    "receivePolygon"
 };
 #undef QT_MOC_LITERAL
 
@@ -113,7 +117,7 @@ static const uint qt_meta_data_Widget[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-      19,   14, // methods
+      21,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -121,25 +125,27 @@ static const uint qt_meta_data_Widget[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    5,  109,    2, 0x0a /* Public */,
-       1,    4,  120,    2, 0x2a /* Public | MethodCloned */,
-       9,    4,  129,    2, 0x0a /* Public */,
-       9,    3,  138,    2, 0x2a /* Public | MethodCloned */,
-      12,    5,  145,    2, 0x0a /* Public */,
-      12,    4,  156,    2, 0x2a /* Public | MethodCloned */,
-      16,    1,  165,    2, 0x0a /* Public */,
-      19,    4,  168,    2, 0x0a /* Public */,
-      24,    4,  177,    2, 0x0a /* Public */,
-      26,    1,  186,    2, 0x0a /* Public */,
-      27,    2,  189,    2, 0x0a /* Public */,
-      32,    2,  194,    2, 0x0a /* Public */,
-      33,    3,  199,    2, 0x0a /* Public */,
-      36,    3,  206,    2, 0x0a /* Public */,
-      37,    3,  213,    2, 0x0a /* Public */,
-      41,    3,  220,    2, 0x0a /* Public */,
-      44,    3,  227,    2, 0x0a /* Public */,
-      45,    5,  234,    2, 0x0a /* Public */,
-      46,    1,  245,    2, 0x0a /* Public */,
+       1,    5,  119,    2, 0x0a /* Public */,
+       1,    4,  130,    2, 0x2a /* Public | MethodCloned */,
+       9,    4,  139,    2, 0x0a /* Public */,
+       9,    3,  148,    2, 0x2a /* Public | MethodCloned */,
+      12,    5,  155,    2, 0x0a /* Public */,
+      12,    4,  166,    2, 0x2a /* Public | MethodCloned */,
+      16,    1,  175,    2, 0x0a /* Public */,
+      19,    4,  178,    2, 0x0a /* Public */,
+      24,    4,  187,    2, 0x0a /* Public */,
+      26,    1,  196,    2, 0x0a /* Public */,
+      27,    2,  199,    2, 0x0a /* Public */,
+      32,    2,  204,    2, 0x0a /* Public */,
+      33,    3,  209,    2, 0x0a /* Public */,
+      36,    3,  216,    2, 0x0a /* Public */,
+      37,    3,  223,    2, 0x0a /* Public */,
+      41,    3,  230,    2, 0x0a /* Public */,
+      44,    3,  237,    2, 0x0a /* Public */,
+      45,    5,  244,    2, 0x0a /* Public */,
+      46,    1,  255,    2, 0x0a /* Public */,
+      48,    1,  258,    2, 0x0a /* Public */,
+      49,    1,  261,    2, 0x0a /* Public */,
 
  // slots: parameters
     QMetaType::Void, QMetaType::Int, QMetaType::Int, QMetaType::Int, QMetaType::Int, 0x80000000 | 7,    3,    4,    5,    6,    8,
@@ -161,6 +167,8 @@ static const uint qt_meta_data_Widget[] = {
     QMetaType::Void, QMetaType::Int, QMetaType::Int, 0x80000000 | 17,    3,    4,   18,
     QMetaType::Void, QMetaType::Int, QMetaType::Int, QMetaType::Int, QMetaType::Int, 0x80000000 | 17,    3,    4,    5,    6,   18,
     QMetaType::Void, 0x80000000 | 17,   47,
+    QMetaType::Void, 0x80000000 | 17,   47,
+    QMetaType::Void, 0x80000000 | 17,   18,
 
        0        // eod
 };
@@ -190,6 +198,8 @@ void Widget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
         case 16: _t->receiveReflectPointSignal((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2])),(*reinterpret_cast< std::vector<std::pair<int,int> >(*)>(_a[3]))); break;
         case 17: _t->receiveReflectLineSignal((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2])),(*reinterpret_cast< int(*)>(_a[3])),(*reinterpret_cast< int(*)>(_a[4])),(*reinterpret_cast< std::vector<std::pair<int,int> >(*)>(_a[5]))); break;
         case 18: _t->receiveDrawBezierFullSignal((*reinterpret_cast< std::vector<std::pair<int,int> >(*)>(_a[1]))); break;
+        case 19: _t->receiveDrawBezierApproxSignal((*reinterpret_cast< std::vector<std::pair<int,int> >(*)>(_a[1]))); break;
+        case 20: _t->receivePolygon((*reinterpret_cast< std::vector<std::pair<int,int> >(*)>(_a[1]))); break;
         default: ;
         }
     }
@@ -224,13 +234,13 @@ int Widget::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 19)
+        if (_id < 21)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 19;
+        _id -= 21;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 19)
+        if (_id < 21)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 19;
+        _id -= 21;
     }
     return _id;
 }
