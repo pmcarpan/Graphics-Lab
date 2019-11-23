@@ -15,7 +15,8 @@ class BezierMenu : public QWidget
     QLayout *globalLayout, *groupBoxLayout;
     QGroupBox *groupBox;
     QLabel *hoverCoordinatesLabel, *clickCoordinatesLabel;
-    QPushButton *pushControlPointButton, *drawBezierFullButton, *clearControlPointsButton;
+    QPushButton *pushControlPointButton, *drawBezierFullButton, *drawBezierApproxButton,
+                *clearControlPointsButton;
 
     std::vector<std::pair<int, int>> controlPoints;
     int clickX, clickY;
@@ -29,9 +30,11 @@ public slots:
     void onPushControlPointButtonClicked();
     void onClearControlPointsButtonClicked();
     void onDrawBezierFullButtonClicked();
+    void onDrawBezierApproxButtonClicked();
 
 signals:
     void sendDrawBezierFullSignal(std::vector<std::pair<int, int>> controlPoints);
+    void sendDrawBezierApproxSignal(std::vector<std::pair<int, int>> controlPoints);
 
 };
 

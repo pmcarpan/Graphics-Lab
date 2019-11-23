@@ -1,5 +1,7 @@
 #include "bezieralgorithms.h"
 
+
+
 BezierAlgorithms::BezierAlgorithms()
 {
     // empty constructor, do not instantiate this class
@@ -49,4 +51,20 @@ void BezierAlgorithms::drawBezierFull(GridModel *grid, std::vector<std::pair<int
     }
 }
 
+void BezierAlgorithms::drawBezierApprox(GridModel *grid, std::vector<std::pair<int, int> > controlPoints)
+{
+    assert(controlPoints.size() >= 4);     // atleast 4 control pts
+    assert(controlPoints.size() % 3 == 1); // must allow cubic approximation
+
+    grid->clear();
+    for (std::pair<int, int> pt : controlPoints)
+        grid->setPixel(pt.first, pt.second);
+
+    for (auto it = controlPoints.begin(); it != controlPoints.end() - 1; it += 3)
+    {
+//        std::cout << "1\n";
+
+        drawBezierFull(grid, std::vector<std::pair<int, int>>(it, it + 4));
+    }
+}
 

@@ -95,6 +95,8 @@ Widget::Widget(QWidget *parent)
             this, SLOT(receiveReflectLineSignal(int, int, int, int, std::vector<std::pair<int, int>>)));
     connect(menuForLines->bezierMenu, SIGNAL(sendDrawBezierFullSignal(std::vector<std::pair<int, int>>)),
             this, SLOT(receiveDrawBezierFullSignal(std::vector<std::pair<int, int>>)));
+    connect(menuForLines->bezierMenu, SIGNAL(sendDrawBezierApproxSignal(std::vector<std::pair<int, int>>)),
+            this, SLOT(receiveDrawBezierApproxSignal(std::vector<std::pair<int, int>>)));
 
     // connections for time signals
     connect(LineAlgorithms::durationEmitter, SIGNAL(sendTimeSignal(const long long&)),
@@ -103,6 +105,10 @@ Widget::Widget(QWidget *parent)
             menuForLines->circleMenu, SLOT(receiveTimeTaken(const long long&)));
     connect(EllipseAlgorithms::durationEmitter, SIGNAL(sendTimeSignal(const long long&)),
             menuForLines->ellipseMenu, SLOT(receiveTimeTaken(const long long&)));
+
+    // connection for sending polygon back to menu
+    connect(TransformationAlgorithms::polygonEmitter, SIGNAL(sendPolySignal(std::vector<std::pair<int, int>>)),
+            this, SLOT(receivePolygon(std::vector<std::pair<int, int>>)));
 
 
     globalLayout->addWidget(menuForLines);
@@ -200,4 +206,15 @@ void Widget::receiveReflectLineSignal(int x1, int y1, int x2, int y2, std::vecto
 void Widget::receiveDrawBezierFullSignal(std::vector<std::pair<int, int>> controlPoints)
 {
     BezierAlgorithms::drawBezierFull(gridModel, controlPoints);
+}
+
+void Widget::receiveDrawBezierApproxSignal(std::vector<std::pair<int, int>> controlPoints)
+{
+    BezierAlgorithms::drawBezierApprox(gridModel, controlPoints);
+}
+
+void Widget::receivePolygon(std::vector<std::pair<int, int>> v)
+{
+    menuForLines->transformationMenu->vertices = v;
+    menuForLines->transformationMenu->onDrawButtonClicked();
 }

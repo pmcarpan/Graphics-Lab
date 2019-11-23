@@ -5,6 +5,9 @@
 #include <QtMath>
 
 #include "polygonalgorithms.h"
+#include "linealgorithms.h"
+
+PolygonEmitter* TransformationAlgorithms::polygonEmitter = new PolygonEmitter();
 
 TransformationAlgorithms::TransformationAlgorithms()
 {
@@ -30,6 +33,7 @@ void TransformationAlgorithms::scale(GridModel *grid, double cx, double cy,
 
     grid->clear();
     PolygonAlgorithms::drawPolygon(grid, final);
+    polygonEmitter->sendPoly(final);
 }
 
 void TransformationAlgorithms::shear(GridModel *grid, double cx, double cy,
@@ -50,6 +54,7 @@ void TransformationAlgorithms::shear(GridModel *grid, double cx, double cy,
 
     grid->clear();
     PolygonAlgorithms::drawPolygon(grid, final);
+    polygonEmitter->sendPoly(final);
 }
 
 void TransformationAlgorithms::rotate(GridModel *grid, double degrees, std::pair<int, int> about,
@@ -70,6 +75,7 @@ void TransformationAlgorithms::rotate(GridModel *grid, double degrees, std::pair
 
     grid->clear();
     PolygonAlgorithms::drawPolygon(grid, final);
+    polygonEmitter->sendPoly(final);
 }
 
 void TransformationAlgorithms::reflect(GridModel *grid, int x1, int y1, std::vector<std::pair<int, int> > vertices)
@@ -96,6 +102,8 @@ void TransformationAlgorithms::reflect(GridModel *grid, int x1, int y1, std::vec
 
     grid->clear();
     PolygonAlgorithms::drawPolygon(grid, final);
+    grid->setPixel(x1, y1);
+    polygonEmitter->sendPoly(final);
 }
 
 void TransformationAlgorithms::reflect(GridModel *grid, int x1, int y1, int x2, int y2,
@@ -137,7 +145,9 @@ void TransformationAlgorithms::reflect(GridModel *grid, int x1, int y1, int x2, 
     }
 
     grid->clear();
+    LineAlgorithms::drawLine(grid, x1, y1, x2, y2);
     PolygonAlgorithms::drawPolygon(grid, final);
+    polygonEmitter->sendPoly(final);
 }
 
 
@@ -159,6 +169,7 @@ void TransformationAlgorithms::translate(GridModel *grid, double dx, double dy,
 
     grid->clear();
     PolygonAlgorithms::drawPolygon(grid, final);
+    polygonEmitter->sendPoly(final);
 }
 
 

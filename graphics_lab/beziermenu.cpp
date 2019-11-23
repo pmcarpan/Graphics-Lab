@@ -1,5 +1,7 @@
 #include "beziermenu.h"
 
+#include <QMessageBox>
+
 BezierMenu::BezierMenu(QWidget *parent) : QWidget(parent)
 {
     groupBox = new QGroupBox("Bezier");
@@ -10,12 +12,14 @@ BezierMenu::BezierMenu(QWidget *parent) : QWidget(parent)
 
     pushControlPointButton = new QPushButton("Push Control Point");
     drawBezierFullButton = new QPushButton("Draw Bezier (Full)");
+    drawBezierApproxButton = new QPushButton("Draw Bezier (Approx)");
     clearControlPointsButton = new QPushButton("Clear Control Points");
 
     groupBoxLayout->addWidget(hoverCoordinatesLabel);
     groupBoxLayout->addWidget(clickCoordinatesLabel);
     groupBoxLayout->addWidget(pushControlPointButton);
     groupBoxLayout->addWidget(drawBezierFullButton);
+    groupBoxLayout->addWidget(drawBezierApproxButton);
     groupBoxLayout->addWidget(clearControlPointsButton);
 
     groupBox->setLayout(groupBoxLayout);
@@ -30,6 +34,7 @@ BezierMenu::BezierMenu(QWidget *parent) : QWidget(parent)
 
     connect(pushControlPointButton, SIGNAL(clicked()), this, SLOT(onPushControlPointButtonClicked()));
     connect(drawBezierFullButton, SIGNAL(clicked()), this, SLOT(onDrawBezierFullButtonClicked()));
+    connect(drawBezierApproxButton, SIGNAL(clicked()), this, SLOT(onDrawBezierApproxButtonClicked()));
     connect(clearControlPointsButton, SIGNAL(clicked()), this, SLOT(onClearControlPointsButtonClicked()));
 }
 
@@ -55,6 +60,18 @@ void BezierMenu::onPushControlPointButtonClicked()
 void BezierMenu::onDrawBezierFullButtonClicked()
 {
     emit sendDrawBezierFullSignal(controlPoints);
+}
+
+void BezierMenu::onDrawBezierApproxButtonClicked()
+{
+    if (controlPoints.size() < 4 || controlPoints.size() % 3 != 1)
+    {
+        QMessageBox::warning(this, "Cannot make approx bezier",
+                             tr("No. of control points must be <code>3*n + 1 (n > 0)</code>"));
+        return;
+    }
+
+    emit sendDrawBezierApproxSignal(controlPoints);
 }
 
 void BezierMenu::onClearControlPointsButtonClicked()

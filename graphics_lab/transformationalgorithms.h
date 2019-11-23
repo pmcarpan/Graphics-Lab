@@ -2,11 +2,14 @@
 #define TRANSFORMATIONALGORITHMS_H
 
 #include "gridmodel.h"
+#include "polygonemitter.h"
 
 class TransformationAlgorithms
 {
 public:
     static constexpr double PRECISION = 1E-6;
+
+    static PolygonEmitter *polygonEmitter;
 
 private:
     TransformationAlgorithms();

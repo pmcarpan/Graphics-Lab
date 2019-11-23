@@ -48,6 +48,10 @@ public slots:
     void receiveReflectPointSignal(int x1, int y1, std::vector<std::pair<int, int>> vertices);
     void receiveReflectLineSignal(int x1, int y1, int x2, int y2, std::vector<std::pair<int, int>> vertices);
     void receiveDrawBezierFullSignal(std::vector<std::pair<int, int>> controlPoints);
+    void receiveDrawBezierApproxSignal(std::vector<std::pair<int, int>> controlPoints);
+
+
+    void receivePolygon(std::vector<std::pair<int, int>> vertices);
 };
 
 #endif // WIDGET_H

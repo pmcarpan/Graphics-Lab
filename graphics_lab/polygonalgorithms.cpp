@@ -113,6 +113,12 @@ void PolygonAlgorithms::scanLinePolygonFill(GridModel *grid, std::vector<std::pa
         std::sort(active.begin(), active.end(),
                   [](struct EdgeBucket a, struct EdgeBucket b) { return a.x < b.x; });
 
+        std::cout << "scanY " << scanY << "\n";
+        for (auto eb : active) {
+            std::cout << eb.x << " " << eb.yMin << " " << eb.yMax << "\n";
+        }
+        std::cout << "\n"; std::flush(std::cout);
+
         for (unsigned int i = 0; i < active.size()/2; ++i) {
             for (int j = active[2*i].x; j <= active[2*i+1].x; ++j) {
                 grid->setPixel(j, scanY);
@@ -124,7 +130,7 @@ void PolygonAlgorithms::scanLinePolygonFill(GridModel *grid, std::vector<std::pa
         for (struct EdgeBucket& e : active) {
             if (e.dy != 0) {
                 e.sum += e.dx;
-                if (e.sum >= e.dy) {
+                while (e.sum >= e.dy) {
                     e.x += e.sign;
                     e.sum -= e.dy;
                 }

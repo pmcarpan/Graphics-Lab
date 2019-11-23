@@ -41,6 +41,7 @@ SOURCES += \
         main.cpp \
         menuforlines.cpp \
         polygonalgorithms.cpp \
+        polygonemitter.cpp \
         polygonmenu.cpp \
         transformationalgorithms.cpp \
         transformationmenu.cpp \
@@ -62,6 +63,7 @@ HEADERS += \
         linemenu.h \
         menuforlines.h \
         polygonalgorithms.h \
+        polygonemitter.h \
         polygonmenu.h \
         transformationalgorithms.h \
         transformationmenu.h \
