@@ -62,15 +62,24 @@ void CircleAlgorithms::drawBasicCircle(GridModel *grid, int xc, int yc, int r)
 
 void CircleAlgorithms::drawBresenhamCircle(GridModel *grid, int xc, int yc, int r)
 {
-    int x = 0, y = r, p = 1 - r;
+    int x = 0, y = r, // initial (x, y) is the topmost point
+        p = 1 - r;    // decision parameter, approximate initialization
+
+    // we start at the topmost point (90 degrees)
+    // and go till the line y = x (45 degrees)
+    // remaining points are found by octant symmetry
     while (x <= y)
     {
         plotAllOctants(grid, x, y, xc, yc);
-        if (p >= 0)
+
+        // need to move bottom-right if decision param > 0
+        if (p > 0)
         {
             y--;
             p -= (2 * y);
         }
+
+        // normally move right
         x++;
         p += (2 * x + 1);
     }

@@ -57,37 +57,50 @@ bool PolygonAlgorithms::isSafe(GridModel *grid, int x, int y)
     return true;
 }
 
-// TODO: refactor
-//       operate on edgelist indices instead of actual objects ?
-void PolygonAlgorithms::scanLinePolygonFill(GridModel *grid, std::vector<std::pair<int, int>> vertices)
-{
+
+void PolygonAlgorithms::scanLinePolygonFill(GridModel *grid, std::vector<std::pair<int, int>> vertices) {
+    // push the first vertex so that consecutive pairs produce
+    // the edges of the polygon
     vertices.push_back(vertices[0]);
+
+    // create the edge buckets considering consecutive pairs of vertices
     std::vector<struct EdgeBucket> edgeBuckets;
-    for (unsigned int i = 0; i < vertices.size()-1; ++i)
-    {
+    for (unsigned int i = 0; i < vertices.size() - 1; ++i) {
         std::pair<int, int> one = vertices[i], two = vertices[i+1];
-        // if (one.first == two.first) continue;
-        if (one.first > two.first) std::swap(one, two);
+
+        // construct the bucket
         struct EdgeBucket e;
-        e.yMax = std::max(one.second, two.second); e.yMin = std::min(one.second, two.second);
+        e.yMax = std::max(one.second, two.second);
+        e.yMin = std::min(one.second, two.second);
         e.x = (e.yMin == one.second) ? one.first : two.first;
         e.sign = (one.first-two.first)*(one.second-two.second) < 0 ? -1 : 1;
-        e.dx = std::abs(one.first - two.first); e.dy = std::abs(one.second - two.second);
+        e.dx = std::abs(one.first - two.first);
+        e.dy = std::abs(one.second - two.second);
         e.sum = 0;
+
         edgeBuckets.push_back(e);
     }
 
+    // sort the edge buckets based on increasing order of lesser y coordinate
     std::sort(edgeBuckets.begin(), edgeBuckets.end(),
               [](struct EdgeBucket a, struct EdgeBucket b) { return a.yMin < b.yMin; });
 
-
+    // the active list of buckets currently being considered
     std::vector<struct EdgeBucket> active;
 
+    // initialize scan line's y coordinate to minimum y among all buckets
     int scanY = edgeBuckets[0].yMin;
-    int max = edgeBuckets[edgeBuckets.size()-1].yMax;
 
-    while (!edgeBuckets.empty())
-    {
+    // initialize scan line's max limit to maximum y among all buckets
+    int max = std::max_element(edgeBuckets.begin(), edgeBuckets.end(),
+                               [](struct EdgeBucket a, struct EdgeBucket b) { return a.yMax < b.yMax; }
+                              )->yMax;
+
+    // the loop for the scan line algorithm
+    while (!edgeBuckets.empty() && scanY <= max) {
+
+        // remove a bucket from both the edge bucket list and the active list
+        // if its upper y coordinate equals the scan line's y coordinate
         if (!active.empty()) {
             for (unsigned int i = 0; i < active.size(); ) {
                 if (active[i].yMax <= scanY) {
@@ -105,28 +118,29 @@ void PolygonAlgorithms::scanLinePolygonFill(GridModel *grid, std::vector<std::pa
             }
         }
 
+        // move bucket into active list if its minimum y coordinate
+        // equals the scan line's y coordinate
         for (unsigned int i = 0; i < edgeBuckets.size(); ++i) {
             if (edgeBuckets[i].yMin == scanY)
                 active.push_back(edgeBuckets[i]);
         }
 
+        // sort the active list according to increasing x coordinate
         std::sort(active.begin(), active.end(),
                   [](struct EdgeBucket a, struct EdgeBucket b) { return a.x < b.x; });
 
-        std::cout << "scanY " << scanY << "\n";
-        for (auto eb : active) {
-            std::cout << eb.x << " " << eb.yMin << " " << eb.yMax << "\n";
-        }
-        std::cout << "\n"; std::flush(std::cout);
 
+        // for every alternate pair in active list, draw the line
+        // with their x coordinates as end points and
+        // y coordinate same as the scan line's y coordinate
         for (unsigned int i = 0; i < active.size()/2; ++i) {
             for (int j = active[2*i].x; j <= active[2*i+1].x; ++j) {
                 grid->setPixel(j, scanY);
             }
         }
 
-        // increment x variables of buckets based on the slope
-        // TODO: use integer arithmetic and floating addition only
+        // adjust the x coordinates of each bucket in active list
+        // based on coherence principle, and using only integer operations
         for (struct EdgeBucket& e : active) {
             if (e.dy != 0) {
                 e.sum += e.dx;
@@ -137,8 +151,7 @@ void PolygonAlgorithms::scanLinePolygonFill(GridModel *grid, std::vector<std::pa
             }
         }
 
-        scanY++;
-        if (scanY > max) break;
+        scanY++; // move the scan line up by one unit
     }
 }
 

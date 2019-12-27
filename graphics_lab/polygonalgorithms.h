@@ -7,11 +7,12 @@ class PolygonAlgorithms
 {
 public:
     struct EdgeBucket {
-        int yMax, yMin, x, sign, dx, dy;
-        int sum; // double sum;
+        int yMax, yMin, x, sign, dx, dy, sum;
+        // double sum;
 
         bool operator==(const struct EdgeBucket& other) const {
-            if (yMax != other.yMax || yMin != other.yMin || sign != other.sign || dx != other.dx || dy != other.dy)
+            if (yMax != other.yMax || yMin != other.yMin || sign != other.sign
+                    || dx != other.dx || dy != other.dy)
                 return false;
             return true;
         }

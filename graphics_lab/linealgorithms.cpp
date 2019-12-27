@@ -283,16 +283,16 @@ void LineAlgorithms::clipAndDraw(GridModel *grid, std::tuple<int, int, int, int>
             //   y = y0 + slope * (xm - x0), where xm is xmin or xmax
             // No need to worry about divide-by-zero because, in each case, the
             // outcode bit being tested guarantees the denominator is non-zero
-            if (outcodeOut & TOP) {           // point is above the clip window
+            if (outcodeOut & TOP) {                // point is above the clip window
                 x = x0 + (x1 - x0) * (ymax - y0) / (y1 - y0);
                 y = ymax;
-            } else if (outcodeOut & BOTTOM) { // point is below the clip window
+            } else if (outcodeOut & BOTTOM) {      // point is below the clip window
                 x = x0 + (x1 - x0) * (ymin - y0) / (y1 - y0);
                 y = ymin;
-            } else if (outcodeOut & RIGHT) {  // point is to the right of clip window
+            } else if (outcodeOut & RIGHT) {       // point is to the right of clip window
                 y = y0 + (y1 - y0) * (xmax - x0) / (x1 - x0);
                 x = xmax;
-            } else if (outcodeOut & LEFT) {   // point is to the left of clip window
+            } else /* if (outcodeOut & LEFT)0 */ { // point is to the left of clip window
                 y = y0 + (y1 - y0) * (xmin - x0) / (x1 - x0);
                 x = xmin;
             }
@@ -300,12 +300,12 @@ void LineAlgorithms::clipAndDraw(GridModel *grid, std::tuple<int, int, int, int>
             // Now we move outside point to intersection point to clip
             // and get ready for next pass.
             if (outcodeOut == outcode0) {
-                x0 = x;
-                y0 = y;
+                x0 = int(std::round(x));
+                y0 = int(std::round(y));
                 outcode0 = computeCode(x0, y0, rect);
             } else {
-                x1 = x;
-                y1 = y;
+                x1 = int(std::round(x));
+                y1 = int(std::round(y));
                 outcode1 = computeCode(x1, y1, rect);
             }
         }
